@@ -1,19 +1,62 @@
 # REQ-AUTONOMY.md
 
+**Version:** 1.1  
+**Date:** 2026-03-18
+
+---
+
 ## Summary [REQ-AUTONOMY-SUMMARY]
 
-This document defines requirements for progressive autonomy, review gating, and reliability thresholds.
+This document defines requirements for progressive autonomy, builder authority, checkpoint gates, and future escalation rules.
 
-### REQ-600 — Supervised Phase
-Phase 1 shall preserve explicit builder approval for substantive actions.
+---
 
-### REQ-601 — Guided Coordination
-Phase 2 shall support system-coordinated execution with builder checkpoint authority.
+## Phase 1 Authority Model [REQ-AUTONOMY-P1]
 
-### REQ-602 — Autonomous Progression
-Higher autonomy shall be enabled only when defined checkpoint and reliability thresholds are met.
+### REQ-600 — Supervised Workflow
 
-### REQ-603 — Checkpoint Gates
-Weave shall prevent unverified work from silently advancing to downstream stages.
+Phase 1 shall operate in supervised mode, with the builder approving substantive file and git actions.
 
-**Traces:** [INTENT-G4], [INTENT-G6], [INTENT-C6]
+**Traces:** [INTENT-G4], [INTENT-C6]
+
+### REQ-601 — No Silent Promotion of Work
+
+Phase 1 shall not silently apply major file changes or advance workflow stages without builder confirmation.
+
+**Traces:** [INTENT-G4], [INTENT-C6]
+
+---
+
+## Checkpoints [REQ-AUTONOMY-CHECKPOINT]
+
+### REQ-602 — Explicit Checkpoint Gates
+
+Weave shall treat review and confirmation points as explicit gates rather than informal pauses.
+
+**Traces:** [INTENT-G4], [INTENT-G6]
+
+### REQ-603 — Gate Failure Stops Advancement
+
+When a required gate fails, the workflow shall stop rather than partially advancing downstream stages.
+
+**Traces:** [INTENT-G4], [INTENT-P2]
+
+---
+
+## Future Escalation Foundations [REQ-AUTONOMY-FUTURE]
+
+### REQ-604 — Store Artifacts Needed for Future Autonomy
+
+Phase 1 should define artifact schemas and state structures that future guided and autonomous phases can build upon.
+
+**Traces:** [INTENT-G4], [INTENT-G6]
+
+### REQ-605 — Reliability Before Autonomy Increase
+
+Higher autonomy shall require evidence of reliable forward progress rather than assumption.
+
+**Traces:** [INTENT-G4]
+
+---
+
+*These requirements preserve the trust-earned progression at the heart of Weave’s design.*

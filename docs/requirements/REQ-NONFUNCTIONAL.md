@@ -1,22 +1,78 @@
 # REQ-NONFUNCTIONAL.md
 
+**Version:** 1.1  
+**Date:** 2026-03-18
+
+---
+
 ## Summary [REQ-NONFUNCTIONAL-SUMMARY]
 
-This document defines performance, reliability, portability, and security requirements.
+This document defines Phase 1 non-functional requirements for performance, resilience, security, portability, and local-first behavior.
 
-### REQ-700 — Session Startup Performance
-Weave should enable productive startup within two minutes.
+---
 
-### REQ-701 — Session Close Performance
-Weave should enable minimum close within one minute of builder mechanical effort.
+## Performance [REQ-NFR-PERF]
 
-### REQ-702 — Secret Safety
-Weave shall never write provider secrets to project files or logs.
+### REQ-700 — Startup Performance Target
 
-### REQ-703 — Local-Only Core Operation
-Local file and git operations shall function independently of model connectivity.
+Weave should support session startup to productive interaction in under two minutes on the target development machine.
 
-### REQ-704 — Data Portability
-All project state files produced by Weave shall remain plain-text and tool-independent.
+**Traces:** [INTENT-G1], [INTENT-P1]
 
-**Traces:** [INTENT-C1], [INTENT-C3], [INTENT-P2], [INTENT-P3]
+### REQ-701 — Close Performance Target
+
+Weave should support the minimum close workflow in under one minute of builder mechanical effort, excluding review time.
+
+**Traces:** [INTENT-G1], [INTENT-P1]
+
+---
+
+## Security [REQ-NFR-SEC]
+
+### REQ-702 — Secret Non-Persistence in Repo
+
+Weave shall never write provider secrets to repository files.
+
+**Traces:** [INTENT-C3], [INTENT-P2]
+
+### REQ-703 — Local Credential Usage
+
+Weave shall use locally available credentials and avoid remote credential brokering.
+
+**Traces:** [INTENT-C3], [INTENT-C1]
+
+---
+
+## Resilience [REQ-NFR-RES]
+
+### REQ-704 — Local Operations Without Connectivity
+
+Local file operations, git operations, and state inspection shall remain usable without provider connectivity.
+
+**Traces:** [INTENT-C1], [INTENT-P2]
+
+### REQ-705 — Graceful Provider Failure
+
+Provider failures shall not corrupt session state or project files.
+
+**Traces:** [INTENT-P2], [INTENT-P4]
+
+---
+
+## Portability [REQ-NFR-PORT]
+
+### REQ-706 — Plain-Text State Portability
+
+Project state files produced by Weave shall remain plain-text, human-readable, and tool-independent.
+
+**Traces:** [INTENT-C1], [INTENT-P5]
+
+### REQ-707 — Shell-Independent Core
+
+Core orchestration logic shall not require a specific desktop shell framework.
+
+**Traces:** [INTENT-C4]
+
+---
+
+*These non-functional requirements define the minimum quality bar for Phase 1 usefulness.*
