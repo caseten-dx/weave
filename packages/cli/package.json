@@ -1,0 +1,19 @@
+{
+  "name": "@weave/cli",
+  "version": "0.1.0",
+  "private": true,
+  "bin": {
+    "weave": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -b --pretty false"
+  },
+  "dependencies": {
+    "@weave/shared": "workspace:*",
+    "@weave/core": "workspace:*",
+    "@weave/providers": "workspace:*"
+  }
+}
