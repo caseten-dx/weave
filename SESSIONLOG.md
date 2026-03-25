@@ -1,8 +1,55 @@
 # SESSIONLOG.md
 
-**Version:** 1.0  
+**Version:** 1.3  
 **Date:** 2026-03-18  
-**Last Updated:** 2026-03-18
+**Last Updated:** 2026-03-25
+
+---
+
+## Session 003 — System Prompt Refinement and Close Workflow Alignment [SESSION-003]
+
+**Date:** 2026-03-25
+
+Reviewed Weave’s founding, strategic, architectural, and requirements documents to refine the development system prompt into a production-ready v1.1. The session focused on increasing prompt value per token while preserving Weave’s core operating model: repo truth, bounded execution, acceptance-first implementation, explicit handoffs, cost visibility, and supervised progressive autonomy.
+
+### Outcomes
+- drafted and iteratively refined `SYSTEM_PROMPT.md v1.1`
+- aligned prompt behavior with founding intent, strategic intent, principles, decisions, architecture, and key Phase 1 requirements
+- strengthened prompt rules for:
+  - behavioral specification and acceptance traceability
+  - conflict surfacing and missing-context honesty
+  - explicit supervised gates
+  - cost-aware routing and metrics visibility
+  - lower-tier executor delegation through Change Orders and Handoff Bundles
+  - deterministic session close behavior
+
+### Artifacts Updated or Created
+- `SYSTEM_PROMPT.md` — adopted latest refined v1.1
+- `HANDOFF.md` — next-session guidance refreshed
+- `SESSIONLOG.md` — current session recorded
+
+### Decisions Referenced
+- DEC-004 — Progressive Autonomy
+- DEC-005 — TODO-First Close Protocol
+- DEC-006 — Structured Model Handoffs
+- DEC-011 — Cost Actuals Preferred over Estimates
+- DEC-012 — Local Operational Storage under `.weave/`
+
+### Recommended Next Focus
+- begin Phase 1 implementation from the recommended near-term start:
+  - WEV-P1-001 — Implement Result type helpers
+  - WEV-P1-004 — Define file and git error types
+  - WEV-P1-002 — Define core domain interfaces
+  - WEV-P1-005 — Implement recognized file registry
+  - WEV-P1-006 — Implement FileReader
+- load the relevant architecture and requirement sections for the first selected slice before implementation begins
+
+### Open Follow-ups
+- choose first provider for Phase 1 adapter work
+- choose JSON vs SQLite for Phase 1 cost persistence
+- define initial `weave chat` command set
+- choose first-pass TODO/HANDOFF generation approach
+- clarify the practical boundary between provider contract typing and runtime provider interface work
 
 ---
 
