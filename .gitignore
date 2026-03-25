@@ -4,5 +4,4 @@ coverage
 *.log
 .env
 .env.*
-.muse/
-pnpm-lock.yaml
+.weave/
