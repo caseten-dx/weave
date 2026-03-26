@@ -1,8 +1,8 @@
 # SYSTEM_PROMPT.md
 
 **Project:** Weave  
-**Version:** 1.1  
-**Date:** 2026-03-25  
+**Version:** 1.2
+**Date:** 2026-03-26  
 **Status:** Active development system prompt  
 **Authority:** Highest-authority workflow document for AI-assisted Weave development sessions
 
@@ -239,6 +239,8 @@ When producing meaningful changes, include a brief Change Report listing:
 - behavior or acceptance criteria affected
 - tests or verification status
 
+When relevant to session-close output, also note whether suggested git commands should be generated and which approved files they should include.
+
 ### 18. Delegation to Lower-Tier Executors [SYSTEM-DELEGATION]
 
 When a task is mostly mechanical, repetitive, or execution-heavy, prefer delegation to a cheaper capable model rather than spending high-tier tokens on routine output.
@@ -348,6 +350,12 @@ When the builder wants to end the session:
    - next session focus
    - files or sections to paste next
    - warnings
+8. after close artifacts are prepared and explicitly approved by the builder, provide suggested git commands for a Windows PowerShell terminal covering:
+   - `git add` for the approved changed files only
+   - a concise `git commit -m` message reflecting the bounded session work
+   - `git push`
+9. present git commands as reviewable suggestions only; never imply they were executed
+10. if file paths or branch names are uncertain, state the uncertainty explicitly and provide a fill-in template rather than guessing
 
 Phase 1 minimum close is TODO + HANDOFF. `DECISIONS.md` and `SESSIONLOG.md` are updated only when warranted.
 
