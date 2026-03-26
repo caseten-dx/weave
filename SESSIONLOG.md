@@ -1,8 +1,54 @@
 # SESSIONLOG.md
 
-**Version:** 1.4  
+**Version:** 1.5  
 **Date:** 2026-03-18  
 **Last Updated:** 2026-03-26
+
+---
+
+## Session 006 — TODO Delivery Repair and Session Close Preparation [SESSION-006]
+
+**Date:** 2026-03-26
+
+Reviewed the immediately prior `TODO.md` delivery after the builder reported that the Poe output broke after the canonical `Result<T, E>` example. The session focused on repairing the artifact-delivery format without changing the underlying planning intent, preserving the current implementation-readiness state, and preparing a clean session close from repository-facing artifacts.
+
+### Outcomes
+- identified the likely failure source as Markdown fence interaction in Poe caused by nested triple-backtick code blocks inside the delivered `.md`
+- regenerated the full `TODO.md` in a safer format so the canonical `Result<T, E>` example no longer risks breaking the artifact output
+- preserved the existing planning structure rather than re-planning:
+  - current focus
+  - readiness checklist
+  - captured clarifications
+  - package boundary rules
+  - execution-ready Slice S0 plan
+  - Phase 1 priorities, order, and slices
+  - gates and open questions
+- confirmed that no additional builder clarification was needed to repair the output formatting issue
+- prepared session-close documentation so the next session can begin from corrected repository artifacts rather than chat history
+
+### Artifacts Updated or Created
+- `TODO.md` — regenerated in a safer Markdown-delivery format to avoid Poe fence breakage at the canonical `Result<T, E>` clarification
+- `SESSIONLOG.md` — current session recorded
+- `HANDOFF.md` — should be refreshed next if a formal handoff artifact is being maintained for close
+
+### Decisions Referenced
+- DEC-005 — TODO-First Close Protocol
+- DEC-007 — Result Type for Expected Failures
+- DEC-012 — Local Operational Storage under `.weave/`
+
+### Recommended Next Focus
+- copy the corrected `TODO.md` into the repository as the source-of-truth backlog
+- begin Slice S0 implementation:
+  - WEV-BOOT-003 — Create monorepo and package scaffold
+  - WEV-BOOT-004 — Establish baseline engineering tooling
+- once S0 is complete, proceed into:
+  - WEV-P1-001 — Implement Result type helpers
+  - WEV-P1-004 — Define file and git error types
+
+### Open Follow-ups
+- update `HANDOFF.md` so the next session starts directly on Slice S0
+- keep future Markdown artifact delivery compatible with Poe by avoiding nested fenced blocks where possible
+- decide whether raw Markdown delivery or indented inner code blocks should become the default artifact-output convention for this workflow
 
 ---
 
