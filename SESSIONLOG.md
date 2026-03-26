@@ -1,8 +1,125 @@
 # SESSIONLOG.md
 
-**Version:** 1.2 
+**Version:** 1.4  
 **Date:** 2026-03-18  
-**Last Updated:** 2026-03-25
+**Last Updated:** 2026-03-26
+
+---
+
+## Session 005 — Cross-Document Consistency Review and Workflow-Priority Alignment [SESSION-005]
+
+**Date:** 2026-03-26
+
+Reviewed the revised core planning and architecture documents for internal consistency against the builder’s clarified near-term priority: replace the current manual repo/VS Code ↔ hosted-chat ↔ repo/VS Code workflow with a supervised repo-native CLI workflow using direct provider APIs, direct file access, safe file application, and git assistance. The session focused on ensuring that speed and cost were represented together correctly, and that the baseline milestone was described as an end-to-end workflow replacement rather than a loose collection of features.
+
+### Outcomes
+- performed consistency review across:
+  - `CORE_CONTEXT.md`
+  - `docs/ARCHITECTURE.md`
+  - `docs/requirements/REQUIREMENTS.md`
+  - `TODO.md`
+- identified and corrected wording drift where:
+  - workflow acceleration was being emphasized without enough explicit linkage to direct-API cost reduction
+  - cost optimization could be misread as only a later routing concern
+  - direct API access and file operations were described as separate priorities instead of paired enablers of the same workflow milestone
+- revised the four documents to align around one shared near-term target:
+  - replace the manual hosted-chat workflow
+  - use direct provider APIs through BYOK
+  - operate directly on target-repository files
+  - support reviewed safe file application
+  - assist with git operations
+  - improve builder speed and reduce model-access cost together
+- clarified the distinction between:
+  - immediate direct-API cost control
+  - later routing-based cost optimization
+- strengthened the repository guidance so the minimum useful Phase 1 loop is consistently represented across planning, architecture, context, and requirements
+
+### Artifacts Updated or Created
+- `CORE_CONTEXT.md` — revised to emphasize workflow replacement, direct API access, target-repo file operations, and the combined speed/cost objective
+- `docs/ARCHITECTURE.md` — revised to define the minimum useful loop explicitly and distinguish direct-API cost control from later routing optimization
+- `docs/requirements/REQUIREMENTS.md` — revised to encode workflow replacement as the primary requirement-loading and prioritization target
+- `TODO.md` — revised to align execution order and priority framing with the end-to-end workflow replacement objective
+- `HANDOFF.md` — refreshed to direct the next session toward clarification capture and implementation-readiness gating
+- `SESSIONLOG.md` — current session recorded
+
+### Decisions Referenced
+- DEC-001 — TypeScript Monorepo
+- DEC-003 — CLI First
+- DEC-005 — TODO-First Close Protocol
+- DEC-009 — Provider Abstraction Layer
+- DEC-011 — Cost Actuals Preferred over Estimates
+- DEC-012 — Local Operational Storage under `.weave/`
+
+### Recommended Next Focus
+- record builder-confirmed answers for IC-001 through IC-012 in `TODO.md`
+- reassess readiness for the first executable slice using repository state only
+- produce the precise implementation plan for the first executable slice
+- if readiness is satisfied, proceed to:
+  - WEV-BOOT-003 — Create monorepo and package scaffold
+  - WEV-BOOT-004 — Establish baseline engineering tooling
+
+### Open Follow-ups
+- populate `TODO-CLARIFICATIONS` with builder-confirmed answers
+- decide first provider for the Phase 1 adapter
+- decide initial provider key loading policy
+- decide initial cost persistence format
+- define recognized startup file set and required/optional handling
+- define path-resolution policy for safe file operations
+- optionally align `INTENT.md` wording with the now-explicit workflow-replacement framing
+
+---
+
+## Session 004 — Readiness Reassessment and TODO Hardening [SESSION-004]
+
+**Date:** 2026-03-25
+
+Reviewed the implementation-readiness state for Phase 1 using `DECISIONS.md`, `docs/ARCHITECTURE.md`, `REQ-STATE.md`, `REQ-GUIDANCE.md`, `REQ-NONFUNCTIONAL.md`, and the current backlog. Determined that direct coding should not begin yet because the monorepo scaffold does not exist and key first-slice clarifications were not yet captured in repository state. Rewrote `TODO.md` into a stronger planning and execution-control document.
+
+### Outcomes
+- reassessed readiness for the first implementation slices using architecture and requirements
+- confirmed that monorepo/package scaffold creation is an explicit prerequisite to coding
+- identified immediate builder clarifications required before Slice A1 and Slice B1
+- restructured `TODO.md` to include:
+  - monorepo bootstrap tasks
+  - pre-implementation readiness checklist
+  - captured clarification ledger
+  - package boundary rules
+  - slice completion checklist
+  - session restart protocol
+  - immediate implementation clarifications vs later product decisions
+  - startup recognized-file gate
+- changed the recommended next action from direct implementation to clarification-first planning
+
+### Artifacts Updated or Created
+- `TODO.md` — fully rewritten and strengthened as the primary execution planning document
+- `HANDOFF.md` — should be updated to direct the next session toward clarification and readiness gating
+- `SESSIONLOG.md` — current session recorded
+- `.gitignore` — recommended update to include `.weave/` and preserve lockfile unless intentionally excluded
+
+### Decisions Referenced
+- DEC-001 — TypeScript Monorepo
+- DEC-005 — TODO-First Close Protocol
+- DEC-007 — Result Type for Expected Failures
+- DEC-012 — Local Operational Storage under `.weave/`
+
+### Recommended Next Focus
+- resolve immediate builder clarifications recorded in `TODO.md`:
+  - canonical `Result<T, E>` shape
+  - initial `Result` helper set
+  - typed error representation and required fields
+  - recognized startup file set
+  - required vs optional startup file classification
+  - file path resolution policy
+  - shared export conventions
+- reassess readiness after clarifications are recorded
+- produce the precise first implementation plan in `TODO.md`
+- only then begin scaffold work and first-slice coding
+
+### Open Follow-ups
+- populate `TODO-CLARIFICATIONS` with builder-confirmed answers
+- update `HANDOFF.md` to reflect clarification-first next steps
+- decide whether to formalize any new process decision in `DECISIONS.md`
+- update `.gitignore` to include `.weave/`
 
 ---
 
